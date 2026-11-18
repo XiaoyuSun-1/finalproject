@@ -1,0 +1,75 @@
+# Missing outcomes in public health surveillance and surveys
+
+**To the BST260 Teaching Team, Fall 2026**
+
+## Project objective
+
+I want to understand who is represented when a public health outcome is
+missing. I will use two course datasets to study missing hospitalization
+information in waterborne outbreak reports and missing systolic blood
+pressure readings in a national health survey. Each dataset will have
+its own analysis vignette on the project site.
+
+## Vignette 1. Hospitalization reporting in waterborne outbreaks
+
+**Research question.** Among U.S. waterborne outbreaks reported to CDC
+from 2009 through 2023, how does the availability of hospitalization
+information differ across drinking water, treated recreational water,
+and untreated recreational water?
+
+I will use `waterborne` from the course `finalproject` package, an
+extract of the CDC National Outbreak Reporting System. The unit of
+analysis is one reported outbreak. I will keep records whose primary
+transmission mode is water and use `water_exposure` to assign them to
+the three groups. I will report how many records have mixed, other, or
+undetermined exposures before excluding them from the main comparison.
+[CDC data and field
+definitions](https://data.cdc.gov/Foodborne-Waterborne-and-Related-Diseases/NORS/5xkq-dg7x/about_data)
+
+The binary outcome is whether `info_on_hospitalizations` reports a
+positive count of people with known hospitalization status. A blank or
+zero count means the report provides no usable count of people with
+known status. An outbreak with known status can still record zero
+hospitalizations. For each exposure group, I will report the number of
+outbreaks, the median number of illnesses, and the percentage with
+hospitalization information. I will also standardize the percentages to
+the same distribution of outbreak onset years because reporting
+practices and the mix of water exposures may change over time. If severe
+cases are more likely to have their hospitalization status recorded, the
+available records may overrepresent severe illness.
+
+## Vignette 2. Missing systolic blood pressure in NHANES
+
+**Research question.** Among adults aged 20 and older with a positive
+NHANES examination weight in 2009–2012, how does the percentage with a
+missing systolic blood pressure reading vary by age group?
+
+I will use `NHANESraw` from the NHANES R package, which includes data
+from the 2009–2010 and 2011–2012 survey cycles and retains the survey
+design variables. The unit of analysis is one participant. I will group
+age as 20–39, 40–59, and 60 or older and report how many records lack
+age or a usable examination weight. The binary outcome is whether the
+combined systolic blood pressure measure (`BPSysAve`) is missing. For
+each age group, I will report the participant count, the survey-weighted
+percentage missing, and the distribution of available readings in mm Hg.
+I will check whether the age pattern holds across sex and survey cycle,
+since measurement completion may vary by participant characteristics or
+cycle. [NHANES package
+documentation](https://cran.r-project.org/web/packages/NHANES/refman/NHANES.html)
+
+As a secondary analysis, I will check whether accounting for missing
+readings changes the estimated mean systolic blood pressure. I will
+combine examination weights across both survey cycles using CDC guidance
+and estimate the survey-weighted mean among adults with a reading. I
+will then reweight the available readings to match the age, sex, and
+survey-cycle distribution of all eligible adults and report the
+difference between the estimates in mm Hg. This adjustment assumes that
+within each of these groups, adults with and without a reading have
+similar mean blood pressure. [CDC survey weighting
+guidance](https://wwwn.cdc.gov/nchs/nhanes/tutorials/weighting.aspx)
+
+## Planned reporting
+
+The pkgdown site will contain both vignettes, with reproducible R
+functions for repeated summaries, tables and plots of missingness, and a
+discussion of the findings and limitations for each dataset.
