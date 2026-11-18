@@ -1,20 +1,20 @@
-Package: bst260project
-Title: project code and narrative
+Package: finalproject
+Title: BST 260 Final Project
 Version: 0.0.3
 Authors@R:
-    person(given = "yourfirstname",
-           family = "lastname",
+    person(given = "Xiaoyu",
+           family = "Sun",
            role = c("aut", "cre"),
-           email = "youremail@gmail.com",
-           comment = c(ORCID = "0000-0002-1825-0097"))
-Description: provide text on what your project emphasizes and 
-	accomplishes in three or more complete sentences.
+           email = "157429620+XiaoyuSun-1@users.noreply.github.com")
+Description: Provides the R package for the Fall 2026 BST 260 final project.
+    It includes the public health datasets bundled in the course template.
+    The accompanying pkgdown site hosts the project materials.
 Depends: R (>= 4.5.0)
-Suggests: knitr, testthat, rmarkdown, pkgdown
-License: Artistic-2.0
+Suggests: knitr, testthat, rmarkdown, pkgdown, quarto
+License: file LICENSE
 VignetteBuilder: quarto
 Encoding: UTF-8
-URL: https://github.com/youreponame
-BugReports: https://github.com/youreponame/issues
+URL: https://github.com/XiaoyuSun-1/finalproject, https://xiaoyusun-1.github.io/finalproject/
+BugReports: https://github.com/XiaoyuSun-1/finalproject/issues
 Config/roxygen2/version: 8.1.1
 Roxygen: list(markdown=TRUE)
